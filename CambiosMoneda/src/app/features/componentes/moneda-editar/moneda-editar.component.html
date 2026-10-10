@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Editando Moneda</h1>
+<div mat-dialog-content>
+    <p>{{datos.encabezado}}</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="datos.moneda.nombre">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Sigla</mat-label>
+        <input matInput [(ngModel)]="datos.moneda.sigla">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Símbolo</mat-label>
+        <input matInput [(ngModel)]="datos.moneda.simbolo">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Entidad Emisora</mat-label>
+        <input matInput [(ngModel)]="datos.moneda.emisor">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelar()">Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="datos" cdkFocusInitial>Aceptar</button>
+</div>

@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{datos.titulo}}</h1>
+<div mat-dialog-content>
+    <p>{{datos.mensaje}}</p>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="datos">Sí</button>
+    <button mat-stroked-button color="primary" (click)="cerrar()">No</button>
+</div>

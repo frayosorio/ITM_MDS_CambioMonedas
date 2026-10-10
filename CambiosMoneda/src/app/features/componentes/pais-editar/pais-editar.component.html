@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Editando País</h1>
+<div mat-dialog-content>
+    <p>{{datos.encabezado}}</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="datos.pais.nombre">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Código Alfa 2</mat-label>
+        <input matInput [(ngModel)]="datos.pais.codigoAlfa2">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Código Alfa 3</mat-label>
+        <input matInput [(ngModel)]="datos.pais.codigoAlfa3">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Moneda</mat-label>
+        <mat-select [(value)]="datos.pais.idMoneda">
+            <mat-option *ngFor="let m of datos.monedas" [value]="m.id">
+                {{m.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelar()">Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="datos" cdkFocusInitial>Aceptar</button>
+</div>

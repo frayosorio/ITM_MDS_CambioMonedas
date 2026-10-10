@@ -1,0 +1,49 @@
+<mat-toolbar class="mat-primary mat-toolbar-single-row mat-elevatmat-z8" color="primary">
+    Cambios de Moneda
+</mat-toolbar>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Moneda</mat-label>
+        <mat-select [(value)]="idMonedaSeleccion" (selectionChange)="listar()">
+            <mat-option *ngFor="let m of this.monedas" [value]="m.id">
+                {{m.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Buscar</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="fechaBusqueda">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-stroked-button color="primary" (click)="buscar()">Buscar</button>
+</div>
+<div>
+    <button mat-raised-button color="primary" (click)="nuevo()">Agregar</button>
+    <button mat-raised-button color="accent" (click)="modificar()">Modificar</button>
+    <button mat-raised-button color="warn" (click)="verificarEliminar()">Eliminar</button>
+
+    <ngx-datatable class={{tema}} [headerHeight]="50" [footerHeight]="50" [rowHeight]="20" [rows]="cambios"
+        [columns]="columnas" [columnMode]="modoColumna.force" [limit]="10" [selectionType]="tipoSeleccion.single"
+        (activate)="onActivate($event)" [rowHeight]="'auto'">
+        <ngx-datatable-column name="Fecha" prop="fecha">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.fecha | date: 'dd/MM/yyyy' }}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Cambio" prop="cambio">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.cambio }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Moneda" prop="moneda.nombre">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row.moneda.nombre }}
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+
+</div>

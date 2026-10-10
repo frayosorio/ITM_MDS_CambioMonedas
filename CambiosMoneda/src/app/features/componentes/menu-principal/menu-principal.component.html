@@ -1,0 +1,29 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="menuLateral.mode === 'over'" (click)="menuLateral.toggle()">
+        <mat-icon *ngIf="!menuLateral.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="menuLateral.opened">
+            close
+        </mat-icon>
+    </button>
+    Cambios de Monedas
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #menuLateral class="mat-elevation-z8">
+        <div *ngFor="let op of opciones; let i = index">
+            <button  [routerLink]="[op.url]" class="menu-button" (click)="menuLateral.toggle()">
+                <img [src]="op.icono">
+                <span>{{ op.titulo }}</span>
+            </button>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
