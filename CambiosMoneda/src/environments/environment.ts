@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    urlBase: "https://localhost:8080/api/"
+    urlBase: "http://localhost:8080/api/"
 }

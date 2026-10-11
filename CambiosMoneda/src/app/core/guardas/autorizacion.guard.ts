@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { RUTA_DEFAULT } from '../../app/app.routes';
+import {RUTA_DEFAULT} from "../../app.routes";
 
 @Injectable({
   providedIn: 'root'

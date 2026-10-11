@@ -10,11 +10,13 @@ export interface DatosLogin {
 
 @Component({
   selector: 'app-login',
+
   imports: [
     ReferenciasMaterialModule,
     FormsModule
   ],
   templateUrl: './login.component.html',
+  standalone: true,
   styleUrl: './login.component.css'
 })
 export class LoginComponent {

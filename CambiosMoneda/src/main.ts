@@ -1,6 +1,18 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { importProvidersFrom } from '@angular/core';
+import {CoreModule} from "./app/core/core.module";
 
-bootstrapApplication(AppComponent, appConfig)
+localStorage.removeItem('token');
+localStorage.removeItem('usuarioActual');
+
+bootstrapApplication(AppComponent, {
+    ...appConfig,
+    providers: [
+      ...appConfig.providers!,
+      importProvidersFrom(CoreModule)
+    ]
+  }
+)
   .catch((err) => console.error(err));
